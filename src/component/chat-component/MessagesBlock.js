@@ -159,11 +159,11 @@ class MessagesBlock extends Component {
                     <div className="message-img"> 
                         <img src={logo} alt="Logo" />
                         <p>
-                            Left comments :
+                            Comments :
                         </p>
                     </div>
                     <div className="messages-block">
-                        {this._renderMessage(messages)}
+                        {this._renderMessage()}
                     </div>
                 </div>
 
