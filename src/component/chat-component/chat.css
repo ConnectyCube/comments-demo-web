@@ -4,6 +4,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    border-top: 1px solid #ececec;
 }
 
 .send-message-block input[type=text] {
@@ -27,15 +28,15 @@
 
 
 .messages-block{
-    border-bottom: 1px solid #ececec;
     height:100%;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    overflow: auto;
 }
 
 .container-message{
+    display: flex;
+    flex-direction: column;
     margin: 20px;
     width: 350px;
     padding: 5px;
@@ -47,11 +48,22 @@
     border-bottom-right-radius: 10px;
   }
 
-.container-message span{
-    display: block;
-    padding: 5px;
-    text-align: right;
+.replay-btn{
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.container-message input{
     cursor: pointer;
+    outline: none;
+    width: 70px;
+    background-color: grey;
+    color: white;
+    border: none;
+    padding: 5px 3px;
+    border-radius: 7px;
 }
 
 .comments-messages{
@@ -60,4 +72,22 @@
 
 .send-as-comment{
     padding-bottom: 10px;
+}
+.message-img{
+    width: 80%;
+    padding: 5px 0 0 20px;
+}
+.message-img img{ 
+    width: 350px;
+    height: auto;
+    padding: 20px;
+    border: 1px solid grey;
+}
+
+.message-img p {
+    text-decoration: underline;
+}
+
+.message-wrap{
+    overflow: auto;
 }

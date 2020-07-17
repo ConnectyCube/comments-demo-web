@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import UserService from '../../services/userService';
+import logo from '../../images/logo.png';
 import Modal from 'react-modal';
 import './chat.css'
 
@@ -70,7 +71,8 @@ class MessagesBlock extends Component {
         })
     }
 
-    openModal = (parent_message_id) => {
+    openModal = (event, parent_message_id) => {
+        event.preventDefault();
         this.selected_parent_message_id = parent_message_id
         this.setState({isModal: true})
     }
@@ -99,7 +101,6 @@ class MessagesBlock extends Component {
 
     _renderMessage = () => {
         this.sortMessages()
-        
         return this.sortedMessages.map(elem => {
             if(elem.comments.length){
                 return(
@@ -108,9 +109,9 @@ class MessagesBlock extends Component {
                             <p>
                                 {elem.message}
                             </p>
-                            <span onClick={() => this.openModal(elem._id)}>
-                                replay
-                            </span>
+                            <div className="replay-btn">
+                                <input type="submit" value="Replay"  onClick={(event) => this.openModal(event,elem._id)}/>
+                            </div>
                         </div>
 
                         <div className="comments-messages">
@@ -132,10 +133,10 @@ class MessagesBlock extends Component {
                     <div className="container-message" key={elem.date_sent}>
                         <p>
                             {elem.message}
-                        </p>
-                        <span onClick={() => this.openModal(elem._id)}>
-                            replay
-                        </span>
+                        </p>     
+                        <div className="replay-btn">
+                            <input type="submit" value="Replay"  onClick={(event) => this.openModal(event,elem._id)}/>
+                        </div>
                     </div>
                 )
             }
@@ -154,8 +155,16 @@ class MessagesBlock extends Component {
         const { messages } = this.props
         return (
             <Fragment>
-                <div className="messages-block">
-                    {this._renderMessage(messages)}
+                <div className="message-wrap">
+                    <div className="message-img"> 
+                        <img src={logo} alt="Logo" />
+                        <p>
+                            Left comments :
+                        </p>
+                    </div>
+                    <div className="messages-block">
+                        {this._renderMessage(messages)}
+                    </div>
                 </div>
 
                 <Modal
