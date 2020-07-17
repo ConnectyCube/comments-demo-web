@@ -3,8 +3,9 @@ A demo of how to implement commenting system on top of ConnectyCube chat
 
 # Get started
 In the project directory, you need run:
-1. npm install
-2. npm start
+1. cd ./comments-demo-web 
+2. npm install
+3. npm start
 
 # Users info
 user_ 1 {
